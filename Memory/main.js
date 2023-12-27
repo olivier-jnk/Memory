@@ -9,6 +9,10 @@ var images = [
     // { chemin: "Images/carte4.png", alt: "", valeur: 0, numéro: 7 }
 ];
 
+function reload (){
+    window.location.href= 'index.html';
+}
+
 //avec i<images.length *2 + ajout de cartes. le systeme de choix de taille peut fonctionner a merveille. (mettre 4 variables
 // similaires mais de taille différentes. qui s'echangent au choix)
 // pb id similaire ? quand ajout de cartes
