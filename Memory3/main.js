@@ -79,7 +79,9 @@ for (var i = 0; i < cartesClass.length; i++) {
         if (valeur < 2){ // modifier val
             //clear les firstclicks.
             this.classList.remove('invisible');
-            this.classList.add('firstclick')
+            // this.classList.removeEventListener('click')
+            // this.classList.removeEventListener('click', arguments.callee);
+            // this.classList.add('firstclick')
             // Peut etre plus besoin du passage en 'firstclick' avec le tableau cartesCliques.
             valeur = valeur + 1;
             cartesCliques.push(this);
@@ -91,7 +93,7 @@ for (var i = 0; i < cartesClass.length; i++) {
 }
 
 function carteVerificator() {
-    if (cartesCliques.length === 2){
+    if (cartesCliques.length === 2){ // Et que deux cartes selectionnés sont pas les mm. sinon remettre la classe invisible a ces deux ci.
         var carteclicked1 = cartesCliques[0];
         var carteclicked2 = cartesCliques[1];
     
@@ -99,22 +101,21 @@ function carteVerificator() {
         var idCarteClicked2 = carteclicked2.id
 
         if (idCarteClicked1 === idCarteClicked2){
-            
             bonnePioche = bonnePioche + 1;
+            // carteclicked1.removeEventListener('click', arguments.callee);
+            // carteclicked2.removeEventListener('click', arguments.callee);
+            // Trouver un vrai moyen de remove le event listener click.
             carteclicked1.classList.remove('firstclick')
             carteclicked1.classList.add('found')
             carteclicked2.classList.remove('firstclick')
             carteclicked2.classList.add('found')
-            carteclicked1.removeEventListener('click', arguments.callee);
-            carteclicked2.removeEventListener('click', arguments.callee);
-            
             console.log(bonnePioche + 'bonnepioche')
         } else {
             console.log('Cartes ne correspondent pas !')
             setTimeout(function() { // delai d'une seconde pour que la deuxieme carte se revele, meme si elle ne correspond pas a la premiere.
-                carteclicked1.classList.remove('firstclick')
+                // carteclicked1.classList.remove('firstclick')
                 carteclicked1.classList.add('invisible')
-                carteclicked2.classList.remove('firstclick')
+                // carteclicked2.classList.remove('firstclick')
                 carteclicked2.classList.add('invisible')
             }, 1000);
         }
@@ -136,8 +137,8 @@ function carteVerificator() {
 }
 
 // A ajouter
-// Ajouter le systeme de win
-// Systeme de score
+
+// Peaufiner le systeme de score
 // possibilité de choisir la taille du terrain de jeu 4x4, 8x8...
 // Design: faire des cartes stylisées et une interface plus interessante.
 
@@ -154,4 +155,6 @@ function carteVerificator() {
 // eviter d'utiliser 'var' pour definir une variable.
 
 //!! Bug du double click carte. SI tu double click sur une carte elle est forcement validée, mais validée seule, donc ca casse le jeu.
-// Bizarrement elements trouvés cliquables tout de meme et donc depopables.
+// Bizarrement elements trouvés cliquables tout de meme et donc depopables. le remove event ne semble pas marcher
+
+// Soit trouver moyen de retirer le event listener click efficacement des qu'une carte ne possède pas la class 'invisible'
