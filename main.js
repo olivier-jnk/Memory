@@ -157,4 +157,4 @@ function carteVerificator() {
 //!! Bug du double click carte. SI tu double click sur une carte elle est forcement validée, mais validée seule, donc ca casse le jeu.
 // Bizarrement elements trouvés cliquables tout de meme et donc depopables. le remove event ne semble pas marcher
 
-// Soit trouver moyen de retirer le event listener click efficacement des qu'une carte ne possède pas la class 'invisible'
+//Trouver moyen de retirer le event listener click efficacement des qu'une carte ne possède pas la class 'invisible'
