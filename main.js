@@ -102,8 +102,8 @@ function carteVerificator() {
 
         if (idCarteClicked1 === idCarteClicked2){
             bonnePioche = bonnePioche + 1;
-            // carteclicked1.removeEventListener('click', arguments.callee);
-            // carteclicked2.removeEventListener('click', arguments.callee);
+            // carteclicked1.removeEventListener('click', arguments.callee); //NE FONCTIONNE PAS !
+            // carteclicked2.removeEventListener('click', arguments.callee); //NE FONCTIONNE PAS !
             // Trouver un vrai moyen de remove le event listener click.
             carteclicked1.classList.remove('firstclick')
             carteclicked1.classList.add('found')
