@@ -19,6 +19,7 @@ var images1 = [
     { chemin: "Images/carte6.png", alt: "", valeur: 0, numéro: 8 },
     //changer les images
 ]
+// Possibilité d'ajouter de nombreuses tailles de terrain voir meme autres themes, facilement.
 const images = [images0, images1];
 
 window.onload = function () {
@@ -28,22 +29,13 @@ window.onload = function () {
 
 function choixTaille(taille) {
 
-    // let choixTerrainV = images0;
-    // console.log(choixTerrainV + "Choix terrain fInit")
     let choixTerrainV = images[taille];
-
-    // if(taille){
-    //     
-    //     console.log('lancement du if')
-    //     return choixTerrainV;
-    // }
     console.log(choixTerrainV + " Choix Terrain")
     partie (choixTerrainV);
     return choixTerrainV;
 }
 
 const choixTerrain = images0;
-// const choixTerrain2 = "images" + images0;
 
 function reload (){
     window.location.href= 'index.html';
@@ -156,17 +148,17 @@ function partie (choixTerrain){
     function winGame (){
         setTimeout(function() {
             if (coup <= 6){
-                alert('TRICHEUR !')
+                alert('TRICHEUR !\n' + " Vous avez finit en " + coup + ' coups')
                 // + message perso pour afficher le nombre de coups
             }
             else if (coup > 6 || coup < 10){
-                alert("Vous etes de ceux qui ont l'esprit vif !")
+                alert("Vous etes de ceux qui ont l'esprit vif !\n" + " Vous avez finit en " + coup + ' coups')
             }
             else if (coup > 11 || coup < 15){
-                alert('Pas trop mal...')
+                alert('Pas trop mal...\n' + " Vous avez finit en " + coup + ' coups')
             }
             else{
-                alert('0/20')
+                alert('0/20\n' + " Vous avez finit en " + coup + ' coups')
             }
             valeur = 0;
             cartesCliques = [];
@@ -174,29 +166,31 @@ function partie (choixTerrain){
         }, 1000);
     
     }
-
 }
 
 
 // A ajouter
 
-// Peaufiner le systeme de score
+// Score cumulatif ?
 // possibilité de choisir la taille du terrain de jeu 4x4, 8x8...
 // Design: faire des cartes stylisées et une interface plus interessante.
 
 // ///
 // 4x3 / 6X6 (18 cartes.)
 
-//mode de choix de taille 4X4 3X3... / soit variables/functions differentes. Soit pages differentes accessibles au boutton. dispo qui differe.
-// ajouter differents modes de jeu + score + win. 
-//+ design.
+// ajouter differents modes de jeu 
+
 // Donner un rang en fonction du nombre de coups.
 
-// Choix du theme de mots pour le pendu. (plusieurs pages ou var) + revelation du mot avec definition + design.
-
-// eviter d'utiliser 'var' pour definir une variable.
+// eviter d'utiliser 'var' pour definir une variable. // remplacement var par cont = bug. a voir comment faire ca proprement.
 
 //!! Bug du double click carte. SI tu double click sur une carte elle est forcement validée, mais validée seule, donc ca casse le jeu.
 // Bizarrement elements trouvés cliquables tout de meme et donc depopables. le remove event ne semble pas marcher
 
 //Trouver moyen de retirer le event listener click efficacement des qu'une carte ne possède pas la class 'invisible'
+
+// Probleme.
+
+// impossible une fois passé en 6X6 de repasser en 4X3, par contre possible d'activer le 6X6 encore et d'aggrandir
+// Encore plus le terrain de jeu...
+// Mettre le choix uniquement au début. Une fois la partie commencée, impossible de changer. (?)
